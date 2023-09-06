@@ -41,4 +41,15 @@ class LoggingTest extends TestCase
         // Log::warning("Hello Warning Laravel"); // log akan spesifik hanya dikirim ke channel default
         self::assertTrue(true);
     }
+
+    public function testCustomLogger()
+    {
+        $fileLogger = Log::channel('file');
+        $fileLogger->info("Hello Handler");
+        $fileLogger->warning("Hello Handler");
+        $fileLogger->error("Hello Handler");
+        $fileLogger->critical("Hello Handler");
+
+        self::assertTrue(true);
+    }
 }
