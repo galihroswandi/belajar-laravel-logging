@@ -32,4 +32,13 @@ class LoggingTest extends TestCase
 
         self::assertTrue(true);
     }
+
+    public function testChannel()
+    {
+        $stderrLogger = Log::channel('stderr');
+        $stderrLogger->error("Hello Channel STDERR"); // log akan spesifik hanya dikirim ke  channel stderr
+
+        // Log::warning("Hello Warning Laravel"); // log akan spesifik hanya dikirim ke channel default
+        self::assertTrue(true);
+    }
 }
